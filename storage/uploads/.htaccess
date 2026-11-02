@@ -1,0 +1,5 @@
+# Uploads must never be served directly or executed (RULES §11).
+# Files are served later through an authorization-checked endpoint (Phase 13).
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>

@@ -1,0 +1,16 @@
+# Safety net for setups where the project root (not public/) is reachable over HTTP,
+# e.g. XAMPP htdocs without a virtual host. Preferred setup: DocumentRoot = public/.
+Options -Indexes
+
+<IfModule mod_authz_core.c>
+    # Block dotfiles such as .env and .gitignore
+    <FilesMatch "^\.">
+        Require all denied
+    </FilesMatch>
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule (^|/)\.git(/|$) - [F,L]
+    RewriteRule ^(app|config|database|storage|tests)(/|$) - [F,L]
+</IfModule>

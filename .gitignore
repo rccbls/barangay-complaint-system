@@ -1,0 +1,16 @@
+# Credentials / local config
+.env
+.env.*
+!.env.example
+
+# Uploaded files (keep the folder and its deny rule)
+/storage/uploads/*
+!/storage/uploads/.gitkeep
+!/storage/uploads/.htaccess
+
+# Logs, OS, editor
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
